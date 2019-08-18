@@ -8,9 +8,13 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   value = 'Clear me';
+  hide = true;
   constructor() { }
 
   ngOnInit() {
+  }
+  validation(){
+    
   }
   emailFormControl = new FormControl('', [
     Validators.required,
