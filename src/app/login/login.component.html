@@ -1,7 +1,7 @@
 <div class="positionCenter">
     <form class="example-form">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Email" [formControl]="emailFormControl" name="email" >
+          <input matInput placeholder="Email" [formControl]="emailFormControl" #userName >
           <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
             Please enter a valid email address
           </mat-error>
@@ -10,12 +10,12 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="example-form-field">
-          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+          <input #password matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
-            <button mat-raised-button onclick="validation()" color="primary" [routerLink]="['dash']">Login</button>
+            <button mat-raised-button (click)="login(userName.value, password.value)" color="primary" [routerLink]="['dash']">Login</button>
     </form>
 </div>
   
